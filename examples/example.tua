@@ -1,0 +1,19 @@
+print("TUA Test")
+
+type playerInfo {
+    name: str,
+    health: number
+}
+
+local function newInfo(Name: str, Health: number): playerInfo
+    return {
+        name=Name,
+        health=Health
+    }
+end
+
+local infos: {playerInfo} = {}
+
+event("chatted", function(d)
+    infos[d.Value[1]] = newInfo(d.Value[1], getPlayerHealth(d.Value[1]))
+end)
