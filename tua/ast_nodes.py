@@ -1,11 +1,3 @@
-"""
-AST node definitions for Tua.
-
-Plain classes rather than a big pile of dataclasses/enums -- keeps things
-readable and lets the parser just say Node(**stuff).
-"""
-
-
 class Node:
     def __init__(self, **fields):
         self.__dict__.update(fields)
